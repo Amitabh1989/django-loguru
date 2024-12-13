@@ -5,9 +5,11 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="django-loguru",
-    version="1.0.3",
+    version="2.0.0",
     author="Tiago Silva",
     author_email="tiago.arasilva@gmail.com",
+    contributor="Amitabh Suman",
+    contributor_email="amitabhsuman.ss89@gmail.com",
     description="A middleware to log the requests and responses using loguru.",
     long_description=long_description,
     long_description_content_type="text/markdown",
