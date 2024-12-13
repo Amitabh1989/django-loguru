@@ -30,8 +30,9 @@ class DjangoLoguruMiddleware:
             logger.info(f"URL: {request.build_absolute_uri()}")
         logger.info(f"Method: {request.method}")
 
-        if request.method == 'GET':
-            logger.info(f"Data: {request.method.GET}")
+        # Log GET parameters if present
+        if request.GET:
+            logger.info(f"GET Parameters: {request.GET.dict()}")
 
         if configs.LOG_POST and request.method == 'POST':
             logger.info(f"Data: {request.method.POST}")
