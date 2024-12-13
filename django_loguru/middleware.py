@@ -22,7 +22,12 @@ class DjangoLoguruMiddleware:
         """
         Code to be executed on every request/response call.
         """
-        logger.info(f"URL: {request.get_raw_uri()}")
+        # Tries for WSGI format logging first
+        try:
+            logger.info(f"URL: {request.get_raw_uri()}")
+        except AttributeError:
+            # if WSGI fails, goes for ASGI application logging.
+            logger.info(f"URL: {request.build_absolute_uri()}")
         logger.info(f"Method: {request.method}")
 
         if request.method == 'GET':
